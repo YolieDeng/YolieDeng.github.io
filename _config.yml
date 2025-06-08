@@ -7,7 +7,7 @@
 
 # Site Settings
 title                    : "邓乙华"
-description              : "人工智能应用开发工程师"
+description              : "AI研究者，中国计算机学会（CCF）会员。 ENTJ 型人格，具备强烈的目标导向与系统化思维，喜欢通过逻辑分析和高效执行来解决复杂问题。正在研究大语言模型（LLM）的工程化部署、RAG、多智能体与多模态内容生成系统。热爱编程、电影、羽毛球与数学，关注智能技术在真实场景中的综合集成与应用创新。"
 repository               : "RayeRen/acad-homepage.github.io"
 google_scholar_stats_use_cdn : true
 
@@ -23,7 +23,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 author:
   name             : "邓乙华"
   avatar           : "images/deng-512x512.jpg"
-  bio              : "软件工程学士"
+  bio              : "人工智能应用开发工程师"
   location         : "广州, 中国"
   employer         : 
   pubmed           : 
