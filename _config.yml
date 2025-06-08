@@ -22,7 +22,7 @@ baidu_site_verification  :  # get baidu_site_verification from https://ziyuan.ba
 # Site Author
 author:
   name             : "邓乙华"
-  avatar           : "images/deng.jpg"
+  avatar           : "images/deng-512x512.jpg"
   bio              : "软件工程学士"
   location         : "广州, 中国"
   employer         : 
