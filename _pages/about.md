@@ -23,20 +23,24 @@ redirect_from:
 围绕大模型能力增强、智能体通信机制、跨模态数据处理与生成式系统设计等核心问题开展应用探索。具备扎实的系统开发能力与跨模态技术经验，致力于推动通用化、可落地的智能系统解决方案在内容生成、智能交互与信息服务等场景中的应用落地。
 
 # 🔬 在校科研项目
-- *2023.09 - 2024.03* **[Py-Pose-Web：基于人体姿态估计算法的智能 Web 平台](https://gitee.com/intelligence-vision/py-pose-web)**
-  - 负责前后端交互逻辑与系统可视化模块开发
-  - 实现算法在线演示与交互能力提升
-  - 技术栈：YOLOv8 Pose、Flask、Blueprints、JavaScript、HTML/CSS、OpenCV、Numpy
 
-- *2023.06 - 2023.12* **[Face-VectorDB-Login：基于向量数据库的人脸识别登录系统](https://gitee.com/intelligence-vision/face-vectordb-login)**
-  - 设计并实现特征提取、比对与身份验证完整流程
-  - 优化识别精度与响应速度的平衡
-  - 技术栈：RetinaFace、ArcFace、iResNet50、FAISS、Flask、Electron、React、Spring Boot、API通信、加密存储
+### Py-Pose-Web：基于人体姿态估计算法的智能 Web 平台
+- 利用 YOLOv8 Pose 实现人体骨骼关键点的检测与定位  
+- 浏览器端实时姿态演示，支持视频上传和摄像头采集  
+- 后端采用 Flask + Blueprint 管理接口，前端使用 JavaScript 与 HTML/CSS  
+- 技术栈：YOLOv8 Pose、Flask、Blueprints、JavaScript、HTML/CSS、OpenCV、Numpy  
 
-- *2023.03 - 2023.08* **[Label-Explorer：多源数据标注与可视化探索工具](https://gitee.com/intelligence-vision/label-explorer)**
-  - 开发图像、视频等标注信息的高效管理与质量审查功能
-  - 支持模型训练与数据分析工作流程
-  - 技术栈：Python、Streamlit、Pandas、Matplotlib、Label Studio 数据接口、前端可视化组件
+### Face-VectorDB-Login：基于向量数据库的人脸识别登录系统
+- 设计人脸特征提取、比对及身份验证完整流程  
+- 前后端分离，结合 Flask、Electron、React 实现高效交互  
+- 支持加密存储，保障人脸数据安全  
+- 技术栈：RetinaFace、ArcFace、iResNet50、FAISS、Flask、Electron、React、Spring Boot  
+
+### Label-Explorer：多源数据标注与可视化探索工具
+- 支持图像与视频标注数据的导入和管理  
+- 优化数据标注与审核流程，提升训练数据质量  
+- 技术栈：Python、Streamlit、Pandas、Matplotlib、Label Studio 接口 
+
 
 # 📖 毕业院校
 - *2025.06* — 泉州信息工程学院 · 软件学院软件工程专业 · 工学学士
