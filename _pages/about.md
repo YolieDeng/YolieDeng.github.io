@@ -26,34 +26,34 @@ redirect_from:
 
 # 🔬 在校研究项目
 
-### Py-Pose-Web：基于人体姿态估计算法的智能 Web 平台
-**项目简介**
+## Py-Pose-Web：基于人体姿态估计算法的智能 Web 平台
+#### 项目简介
 系统融合深度学习与前后端架构，基于 Ultralytics YOLOv8 实现人体骨骼关键点定位检测，并通过 Flask Blueprints 构建模块化后端接口。支持静态图像、动态视频及实时摄像头输入的姿态估计，在浏览器端实现可视化交互展示，适用于体育分析、人机交互等多种场景。系统支持 PostgreSQL 向量扩展，为进一步的行为识别与数据库管理奠定基础。
-**技术栈**
+#### 技术栈
 YOLOv8 Pose、Flask、Blueprints、JavaScript、OpenCV、Numpy、HTML/CSS、PostgreSQL
 
-### Face-VectorDB-Login：基于向量数据库的人脸识别登录系统
-**项目简介**
+## Face-VectorDB-Login：基于向量数据库的人脸识别登录系统
+#### 项目简介
 项目实现基于向量检索机制的人脸身份认证系统，采用 RetinaFace 和 ArcFace 构建高精度人脸检测与识别模型，结合 FAISS 高效索引库完成特征向量比对。系统支持人脸注册、验证与身份管理，后端利用 Flask 提供接口服务，前端通过 Electron + React 构建桌面应用，具备良好的交互体验与安全性保障。
-**技术栈**
+#### 技术栈
  RetinaFace、ArcFace、iResNet50、FAISS、Flask、Electron、React、Spring Boot、PostgreSQL
 
-### Label-Explorer：多源数据标注与可视化探索工具
-**项目简介**
+## Label-Explorer：多源数据标注与可视化探索工具
+#### 项目简介
 工具面向计算机视觉任务中的标注数据管理，专为 YOLO 格式设计的数据集分析平台。基于 Electron 构建跨平台桌面应用，支持原始图像、标签、类别及元数据文件的统一管理与可视化，为数据清洗、标注审核及模型训练准备提供完整支持。系统可扩展接入 Label Studio 接口，增强数据处理流程的自动化与可控性。
-**技术栈**
+#### 技术栈
 Electron、Node.js、Python、Label Studio API
 
-### 基于深度学习的视频会议人脸签到系统
-**项目简介**
+## 基于深度学习的视频会议人脸签到系统
+#### 项目简介
 系统集成视频通信与智能人脸识别功能，构建一套完整的视频会议出勤管理平台。前端采用 React + Electron 实现跨平台桌面应用，后端基于 Spring Boot 负责身份识别逻辑并接入 MySQL 数据库。通过 DJL 加载 RetinaFace 与 ArcFace 模型，实现精准的人脸检测与特征比对。系统融合开源 Jitsi 视频会议服务器，支持多用户实时视频通话与身份校验。
-**技术栈**
+#### 技术栈
 React、Electron、Spring Boot、MySQL、Ubuntu、DJL、RetinaFace、ArcFace、Jitsi
 
-### 区块链智能合约开发与应用系统
-**项目简介**
+## 区块链智能合约开发与应用系统
+#### 项目简介
 项目围绕数字内容版权保护，构建基于区块链技术的去中心化注册与验证平台。通过 Solidity 编写并部署智能合约，实现链上资产确权与不可篡改记录存证。系统涵盖链网搭建、合约调用、前后端交互等运维流程，为实际区块链应用落地提供实验与开发平台。
-**技术栈**
+#### 技术栈
 Solidity、Ethereum、Web3、Linux、Docker
 
 
