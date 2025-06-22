@@ -44,7 +44,7 @@ YOLOv8 Pose、Flask、Blueprints、JavaScript、OpenCV、Numpy、HTML/CSS、Post
 #### 技术栈
 Electron、Node.js、Python、Label Studio API
 
-## 基于深度学习的视频会议人脸签到系统
+## 基于深度学习的人脸视频会议签到系统
 #### 项目简介
 系统集成视频通信与智能人脸识别功能，构建一套完整的视频会议出勤管理平台。前端采用 React + Electron 实现跨平台桌面应用，后端基于 Spring Boot 负责身份识别逻辑并接入 MySQL 数据库。通过 DJL 加载 RetinaFace 与 ArcFace 模型，实现精准的人脸检测与特征比对。系统融合开源 Jitsi 视频会议服务器，支持多用户实时视频通话与身份校验。
 #### 技术栈
