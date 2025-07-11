@@ -1,0 +1,183 @@
+<!DOCTYPE html><html lang="en" data-theme="light"><head><meta charset="UTF-8"><meta http-equiv="X-UA-Compatible" content="IE=edge"><meta name="viewport" content="width=device-width, initial-scale=1.0,viewport-fit=cover"><title>Git Workflow Guide - From Branch Management to Code Commit | YolieDeng</title><meta name="author" content="Yolie Deng"><meta name="copyright" content="Yolie Deng"><meta name="format-detection" content="telephone=no"><meta name="theme-color" content="#ffffff"><meta name="description" content="A detailed Git workflow guide, including branch management, code commit, and remote repository operations.">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Git Workflow Guide - From Branch Management to Code Commit">
+<meta property="og:url" content="https://yoliedeng.github.io/2025/07/11/git-workflow-guide/index.html">
+<meta property="og:site_name" content="YolieDeng">
+<meta property="og:description" content="A detailed Git workflow guide, including branch management, code commit, and remote repository operations.">
+<meta property="og:locale" content="en_US">
+<meta property="og:image" content="https://yoliedeng.github.io/img/image.png">
+<meta property="article:published_time" content="2025-07-11T09:41:23.910Z">
+<meta property="article:modified_time" content="2025-07-11T09:57:22.799Z">
+<meta property="article:author" content="Yolie Deng">
+<meta property="article:tag" content="Git">
+<meta property="article:tag" content="Version Control">
+<meta property="article:tag" content="Workflow">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://yoliedeng.github.io/img/image.png"><script type="application/ld+json">{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "headline": "Git Workflow Guide - From Branch Management to Code Commit",
+  "url": "https://yoliedeng.github.io/2025/07/11/git-workflow-guide/",
+  "image": "https://yoliedeng.github.io/img/image.png",
+  "datePublished": "2025-07-11T09:41:23.910Z",
+  "dateModified": "2025-07-11T09:57:22.799Z",
+  "author": [
+    {
+      "@type": "Person",
+      "name": "Yolie Deng",
+      "url": "https://yoliedeng.github.io"
+    }
+  ]
+}</script><link rel="shortcut icon" href="/img/favicon.png"><link rel="canonical" href="https://yoliedeng.github.io/2025/07/11/git-workflow-guide/index.html"><link rel="preconnect" href="//cdn.jsdelivr.net"/><link rel="preconnect" href="//busuanzi.ibruce.info"/><link rel="stylesheet" href="/css/index.css"><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@fortawesome/fontawesome-free/css/all.min.css"><script>
+    (() => {
+      
+    const saveToLocal = {
+      set: (key, value, ttl) => {
+        if (!ttl) return
+        const expiry = Date.now() + ttl * 86400000
+        localStorage.setItem(key, JSON.stringify({ value, expiry }))
+      },
+      get: key => {
+        const itemStr = localStorage.getItem(key)
+        if (!itemStr) return undefined
+        const { value, expiry } = JSON.parse(itemStr)
+        if (Date.now() > expiry) {
+          localStorage.removeItem(key)
+          return undefined
+        }
+        return value
+      }
+    }
+
+    window.btf = {
+      saveToLocal,
+      getScript: (url, attr = {}) => new Promise((resolve, reject) => {
+        const script = document.createElement('script')
+        script.src = url
+        script.async = true
+        Object.entries(attr).forEach(([key, val]) => script.setAttribute(key, val))
+        script.onload = script.onreadystatechange = () => {
+          if (!script.readyState || /loaded|complete/.test(script.readyState)) resolve()
+        }
+        script.onerror = reject
+        document.head.appendChild(script)
+      }),
+      getCSS: (url, id) => new Promise((resolve, reject) => {
+        const link = document.createElement('link')
+        link.rel = 'stylesheet'
+        link.href = url
+        if (id) link.id = id
+        link.onload = link.onreadystatechange = () => {
+          if (!link.readyState || /loaded|complete/.test(link.readyState)) resolve()
+        }
+        link.onerror = reject
+        document.head.appendChild(link)
+      }),
+      addGlobalFn: (key, fn, name = false, parent = window) => {
+        if (!false && key.startsWith('pjax')) return
+        const globalFn = parent.globalFn || {}
+        globalFn[key] = globalFn[key] || {}
+        globalFn[key][name || Object.keys(globalFn[key]).length] = fn
+        parent.globalFn = globalFn
+      }
+    }
+  
+      
+      const activateDarkMode = () => {
+        document.documentElement.setAttribute('data-theme', 'dark')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#0d0d0d')
+        }
+      }
+      const activateLightMode = () => {
+        document.documentElement.setAttribute('data-theme', 'light')
+        if (document.querySelector('meta[name="theme-color"]') !== null) {
+          document.querySelector('meta[name="theme-color"]').setAttribute('content', '#ffffff')
+        }
+      }
+
+      btf.activateDarkMode = activateDarkMode
+      btf.activateLightMode = activateLightMode
+
+      const theme = saveToLocal.get('theme')
+    
+          theme === 'dark' ? activateDarkMode() : theme === 'light' ? activateLightMode() : null
+        
+      
+      const asideStatus = saveToLocal.get('aside-status')
+      if (asideStatus !== undefined) {
+        document.documentElement.classList.toggle('hide-aside', asideStatus === 'hide')
+      }
+    
+      
+    const detectApple = () => {
+      if (/iPad|iPhone|iPod|Macintosh/.test(navigator.userAgent)) {
+        document.documentElement.classList.add('apple')
+      }
+    }
+    detectApple()
+  
+    })()
+  </script><script>const GLOBAL_CONFIG = {
+  root: '/',
+  algolia: undefined,
+  localSearch: undefined,
+  translate: undefined,
+  highlight: {"plugin":"highlight.js","highlightCopy":true,"highlightLang":true,"highlightHeightLimit":false,"highlightFullpage":false,"highlightMacStyle":false},
+  copy: {
+    success: 'Copy Successful',
+    error: 'Copy Failed',
+    noSupport: 'Browser Not Supported'
+  },
+  relativeDate: {
+    homepage: false,
+    post: false
+  },
+  runtime: '',
+  dateSuffix: {
+    just: 'Just now',
+    min: 'minutes ago',
+    hour: 'hours ago',
+    day: 'days ago',
+    month: 'months ago'
+  },
+  copyright: undefined,
+  lightbox: 'null',
+  Snackbar: undefined,
+  infinitegrid: {
+    js: 'https://cdn.jsdelivr.net/npm/@egjs/infinitegrid/dist/infinitegrid.min.js',
+    buttonText: 'Load More'
+  },
+  isPhotoFigcaption: false,
+  islazyloadPlugin: false,
+  isAnchor: false,
+  percent: {
+    toc: true,
+    rightside: false,
+  },
+  autoDarkmode: false
+}</script><script id="config-diff">var GLOBAL_CONFIG_SITE = {
+  title: 'Git Workflow Guide - From Branch Management to Code Commit',
+  isHighlightShrink: false,
+  isToc: true,
+  pageType: 'post'
+}</script><meta name="generator" content="Hexo 7.3.0"></head><body><div id="sidebar"><div id="menu-mask"></div><div id="sidebar-menus"><div class="avatar-img text-center"><img src="/img/image.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="site-data text-center"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div></div></div><div class="post" id="body-wrap"><header class="post-bg fixed" id="page-header"><nav id="nav"><span id="blog-info"><a class="nav-site-title" href="/"><span class="site-name">YolieDeng</span></a><a class="nav-page-title" href="/"><span class="site-name">Git Workflow Guide - From Branch Management to Code Commit</span><span class="site-name"><i class="fa-solid fa-circle-arrow-left"></i><span>  Back to Home</span></span></a></span><div id="menus"><div class="menus_items"><div class="menus_item"><a class="site-page" href="/"><i class="fa-fw fas fa-home"></i><span> Home</span></a></div><div class="menus_item"><a class="site-page" href="/categories/"><i class="fa-fw fas fa-folder-open"></i><span> Categories</span></a></div><div class="menus_item"><a class="site-page" href="/link/"><i class="fa-fw fas fa-link"></i><span> Link</span></a></div><div class="menus_item"><a class="site-page" href="/about/"><i class="fa-fw fas fa-heart"></i><span> About</span></a></div></div><div id="toggle-menu"><span class="site-page"><i class="fas fa-bars fa-fw"></i></span></div></div></nav><div id="post-info"><h1 class="post-title">Git Workflow Guide - From Branch Management to Code Commit</h1><div id="post-meta"><div class="meta-firstline"><span class="post-meta-date"><i class="far fa-calendar-alt fa-fw post-meta-icon"></i><span class="post-meta-label">Created</span><time class="post-meta-date-created" datetime="2025-07-11T09:41:23.910Z" title="Created 2025-07-11 17:41:23">2025-07-11</time><span class="post-meta-separator">|</span><i class="fas fa-history fa-fw post-meta-icon"></i><span class="post-meta-label">Updated</span><time class="post-meta-date-updated" datetime="2025-07-11T09:57:22.799Z" title="Updated 2025-07-11 17:57:22">2025-07-11</time></span><span class="post-meta-categories"><span class="post-meta-separator">|</span><i class="fas fa-inbox fa-fw post-meta-icon"></i><a class="post-meta-categories" href="/categories/Dev-Tools/">Dev Tools</a></span></div><div class="meta-secondline"><span class="post-meta-separator">|</span><span class="post-meta-pv-cv" id="" data-flag-title=""><i class="far fa-eye fa-fw post-meta-icon"></i><span class="post-meta-label">Post Views:</span><span id="busuanzi_value_page_pv"><i class="fa-solid fa-spinner fa-spin"></i></span></span></div></div></div></header><main class="layout" id="content-inner"><div id="post"><article class="container post-content" id="article-container"><h1 id="Git-Workflow-Guide"><a href="#Git-Workflow-Guide" class="headerlink" title="Git Workflow Guide"></a>Git Workflow Guide</h1><h2 id="📋-Table-of-Contents"><a href="#📋-Table-of-Contents" class="headerlink" title="📋 Table of Contents"></a>📋 Table of Contents</h2><ul>
+<li><a href="#preparation">Preparation</a></li>
+<li><a href="#branch-management">Branch Management</a></li>
+<li><a href="#code-commit">Code Commit</a></li>
+<li><a href="#remote-operations">Remote Operations</a></li>
+<li><a href="#common-commands">Common Commands</a></li>
+</ul>
+<h2 id="🚀-Preparation"><a href="#🚀-Preparation" class="headerlink" title="🚀 Preparation"></a>🚀 Preparation</h2><h3 id="1-Make-sure-you-are-on-the-main-branch-and-up-to-date"><a href="#1-Make-sure-you-are-on-the-main-branch-and-up-to-date" class="headerlink" title="1. Make sure you are on the main branch and up to date"></a>1. Make sure you are on the main branch and up to date</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Switch to the main branch</span></span><br><span class="line">git checkout main</span><br><span class="line"></span><br><span class="line"><span class="comment"># Pull the latest code</span></span><br><span class="line">git pull origin main</span><br></pre></td></tr></table></figure>
+
+<h2 id="🌿-Branch-Management"><a href="#🌿-Branch-Management" class="headerlink" title="🌿 Branch Management"></a>🌿 Branch Management</h2><h3 id="2-Create-and-switch-to-a-new-branch"><a href="#2-Create-and-switch-to-a-new-branch" class="headerlink" title="2. Create and switch to a new branch"></a>2. Create and switch to a new branch</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create and switch to a new feature branch</span></span><br><span class="line">git checkout -b feature/multi-agent-chat</span><br><span class="line"></span><br><span class="line"><span class="comment"># Or do it in two steps</span></span><br><span class="line">git branch feature/multi-agent-chat</span><br><span class="line">git checkout feature/multi-agent-chat</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-View-branch-information"><a href="#3-View-branch-information" class="headerlink" title="3. View branch information"></a>3. View branch information</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># List all branches (the current branch is marked with an asterisk)</span></span><br><span class="line">git branch</span><br><span class="line"></span><br><span class="line"><span class="comment"># Show detailed branch info (including remote tracking)</span></span><br><span class="line">git branch -vv</span><br><span class="line"></span><br><span class="line"><span class="comment"># List all branches (including remote branches)</span></span><br><span class="line">git branch -a</span><br></pre></td></tr></table></figure>
+
+<h2 id="💾-Code-Commit"><a href="#💾-Code-Commit" class="headerlink" title="💾 Code Commit"></a>💾 Code Commit</h2><h3 id="4-Commit-code-to-the-remote-repository"><a href="#4-Commit-code-to-the-remote-repository" class="headerlink" title="4. Commit code to the remote repository"></a>4. Commit code to the remote repository</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Add all changes to the staging area</span></span><br><span class="line">git add .</span><br><span class="line"></span><br><span class="line"><span class="comment"># Or add a specific file</span></span><br><span class="line">git add filename.js</span><br><span class="line"></span><br><span class="line"><span class="comment"># Commit changes (make sure the branch name matches)</span></span><br><span class="line">git commit -m <span class="string">&quot;feat: add AI endpoint feature&quot;</span></span><br><span class="line"></span><br><span class="line"><span class="comment"># Push to the remote branch</span></span><br><span class="line">git push origin feature/multi-agent-chat</span><br></pre></td></tr></table></figure>
+
+<h2 id="🌐-Remote-Operations"><a href="#🌐-Remote-Operations" class="headerlink" title="🌐 Remote Operations"></a>🌐 Remote Operations</h2><h3 id="5-Sync-with-the-remote-repository"><a href="#5-Sync-with-the-remote-repository" class="headerlink" title="5. Sync with the remote repository"></a>5. Sync with the remote repository</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Pull remote updates</span></span><br><span class="line">git pull origin main</span><br><span class="line"></span><br><span class="line"><span class="comment"># Push local changes</span></span><br><span class="line">git push origin feature/multi-agent-chat</span><br><span class="line"></span><br><span class="line"><span class="comment"># View remote repository info</span></span><br><span class="line">git remote -v</span><br></pre></td></tr></table></figure>
+
+<h2 id="📚-Common-Command-Reference"><a href="#📚-Common-Command-Reference" class="headerlink" title="📚 Common Command Reference"></a>📚 Common Command Reference</h2><h3 id="Branch-Operations"><a href="#Branch-Operations" class="headerlink" title="Branch Operations"></a>Branch Operations</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Create a branch</span></span><br><span class="line">git branch &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Switch branch</span></span><br><span class="line">git checkout &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Create and switch branch</span></span><br><span class="line">git checkout -b &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Delete a branch</span></span><br><span class="line">git branch -d &lt;branch-name&gt;</span><br><span class="line"></span><br><span class="line"><span class="comment"># Force delete a branch</span></span><br><span class="line">git branch -D &lt;branch-name&gt;</span><br></pre></td></tr></table></figure>
+
+<h3 id="Status-Check"><a href="#Status-Check" class="headerlink" title="Status Check"></a>Status Check</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment"># Check working directory status</span></span><br><span class="line">git status</span><br><span class="line"></span><br><span class="line"><span class="comment"># View commit history</span></span><br><span class="line">git <span class="built_in">log</span> --oneline</span><br><span class="line"></span><br><span class="line"><span class="comment"># View branch graph</span></span><br><span class="line">git <span class="built_in">log</span> --graph --oneline --all</span><br></pre></td></tr></table></figure></article><div class="post-copyright"><div class="post-copyright__author"><span class="post-copyright-meta"><i class="fas fa-circle-user fa-fw"></i>Author: </span><span class="post-copyright-info"><a href="https://yoliedeng.github.io">Yolie Deng</a></span></div><div class="post-copyright__type"><span class="post-copyright-meta"><i class="fas fa-square-arrow-up-right fa-fw"></i>Link: </span><span class="post-copyright-info"><a href="https://yoliedeng.github.io/2025/07/11/git-workflow-guide/">https://yoliedeng.github.io/2025/07/11/git-workflow-guide/</a></span></div><div class="post-copyright__notice"><span class="post-copyright-meta"><i class="fas fa-circle-exclamation fa-fw"></i>Copyright Notice: </span><span class="post-copyright-info">All articles on this blog are licensed under <a target="_blank" rel="noopener" href="https://creativecommons.org/licenses/by-nc-sa/4.0/">CC BY-NC-SA 4.0</a> unless otherwise stated.</span></div></div><div class="tag_share"><div class="post-meta__tag-list"><a class="post-meta__tags" href="/tags/Git/">Git</a><a class="post-meta__tags" href="/tags/Version-Control/">Version Control</a><a class="post-meta__tags" href="/tags/Workflow/">Workflow</a></div><div class="post-share"><div class="social-share" data-image="/img/image.png" data-sites="facebook,twitter,wechat,weibo,qq"></div><link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/css/share.min.css" media="print" onload="this.media='all'"><script src="https://cdn.jsdelivr.net/npm/butterfly-extsrc/sharejs/dist/js/social-share.min.js" defer></script></div></div><nav class="pagination-post" id="pagination"><a class="pagination-related full-width" href="/2025/07/11/hexo_blog_building_guide/" title="Hexo Blog Building Guide"><div class="cover" style="background: var(--default-bg-color)"></div><div class="info text-right"><div class="info-1"><div class="info-item-1">Next</div><div class="info-item-2">Hexo Blog Building Guide</div></div><div class="info-2"><div class="info-item-1">Welcome to the Hexo Blog Building Guide! This article will introduce in detail how to build a Hexo blog from scratch and deploy it to GitHub Pages. If you encounter any problems while using Hexo, you can check the official documentation or ask questions on GitHub. Environment preparationInstall necessary tools1234# Make sure the following tools are installednode.jsgitnpm  Quick startCreate a blog project12mkdir my-blogcd my-blog  Install Hexo123npm install -g hexo-clihexo initnpm install  Mor...</div></div></div></a></nav></div><div class="aside-content" id="aside-content"><div class="card-widget card-info text-center"><div class="avatar-img"><img src="/img/image.png" onerror="this.onerror=null;this.src='/img/friend_404.gif'" alt="avatar"/></div><div class="author-info-name">Yolie Deng</div><div class="author-info-description">AI Application Development Engineer</div><div class="site-data"><a href="/archives/"><div class="headline">Articles</div><div class="length-num">2</div></a><a href="/tags/"><div class="headline">Tags</div><div class="length-num">7</div></a><a href="/categories/"><div class="headline">Categories</div><div class="length-num">2</div></a></div><a id="card-info-btn" target="_blank" rel="noopener" href="https://github.com/YolieDeng"><i class="fab fa-github"></i><span>Follow Me</span></a><div class="card-info-social-icons"><a class="social-icon" href="https://github.com/YolieDeng" target="_blank" title="Github"><i class="fab fa-github" style="color: #24292e;"></i></a><a class="social-icon" href="mailto:yoliedeng@gmail.com" target="_blank" title="Email"><i class="fas fa-envelope" style="color: #4a7dbe;"></i></a></div></div><div class="card-widget card-announcement"><div class="item-headline"><i class="fas fa-bullhorn fa-shake"></i><span>Announcement</span></div><div class="announcement_content">I am currently working for a SaaS company focusing on AI. Our products are aimed at the global market, mainly targeting domestic and overseas financial technology users. I focus on the development of artificial intelligence applications, focusing on the efficient deployment and system integration of large language models (LLM) in real scenarios. My research directions include retrieval-augmented generation (RAG), multi-agent systems, and multimodal content generation, focusing on the knowledge scheduling of models in complex tasks, collaborative decision-making of agents, and multimodal content generation capabilities.</div></div><div class="sticky_layout"><div class="card-widget" id="card-toc"><div class="item-headline"><i class="fas fa-stream"></i><span>Contents</span><span class="toc-percentage"></span></div><div class="toc-content"><ol class="toc"><li class="toc-item toc-level-1"><a class="toc-link" href="#Git-Workflow-Guide"><span class="toc-number">1.</span> <span class="toc-text">Git Workflow Guide</span></a><ol class="toc-child"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%8B-Table-of-Contents"><span class="toc-number">1.1.</span> <span class="toc-text">📋 Table of Contents</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%9A%80-Preparation"><span class="toc-number">1.2.</span> <span class="toc-text">🚀 Preparation</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Make-sure-you-are-on-the-main-branch-and-up-to-date"><span class="toc-number">1.2.1.</span> <span class="toc-text">1. Make sure you are on the main branch and up to date</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8C%BF-Branch-Management"><span class="toc-number">1.3.</span> <span class="toc-text">🌿 Branch Management</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Create-and-switch-to-a-new-branch"><span class="toc-number">1.3.1.</span> <span class="toc-text">2. Create and switch to a new branch</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-View-branch-information"><span class="toc-number">1.3.2.</span> <span class="toc-text">3. View branch information</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%BE-Code-Commit"><span class="toc-number">1.4.</span> <span class="toc-text">💾 Code Commit</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Commit-code-to-the-remote-repository"><span class="toc-number">1.4.1.</span> <span class="toc-text">4. Commit code to the remote repository</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8C%90-Remote-Operations"><span class="toc-number">1.5.</span> <span class="toc-text">🌐 Remote Operations</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Sync-with-the-remote-repository"><span class="toc-number">1.5.1.</span> <span class="toc-text">5. Sync with the remote repository</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%93%9A-Common-Command-Reference"><span class="toc-number">1.6.</span> <span class="toc-text">📚 Common Command Reference</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Branch-Operations"><span class="toc-number">1.6.1.</span> <span class="toc-text">Branch Operations</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Status-Check"><span class="toc-number">1.6.2.</span> <span class="toc-text">Status Check</span></a></li></ol></li></ol></li></ol></div></div><div class="card-widget card-recent-post"><div class="item-headline"><i class="fas fa-history"></i><span>Recent Posts</span></div><div class="aside-list"><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/11/git-workflow-guide/" title="Git Workflow Guide - From Branch Management to Code Commit">Git Workflow Guide - From Branch Management to Code Commit</a><time datetime="2025-07-11T09:41:23.910Z" title="Created 2025-07-11 17:41:23">2025-07-11</time></div></div><div class="aside-list-item no-cover"><div class="content"><a class="title" href="/2025/07/11/hexo_blog_building_guide/" title="Hexo Blog Building Guide">Hexo Blog Building Guide</a><time datetime="2025-07-11T08:08:04.072Z" title="Created 2025-07-11 16:08:04">2025-07-11</time></div></div></div></div></div></div></main><footer id="footer"><div class="footer-other"><div class="footer-copyright"><span class="copyright">&copy;2025 By Yolie Deng</span><span class="framework-info"><span>Framework </span><a target="_blank" rel="noopener" href="https://hexo.io">Hexo 7.3.0</a><span class="footer-separator">|</span><span>Theme </span><a target="_blank" rel="noopener" href="https://github.com/jerryc127/hexo-theme-butterfly">Butterfly 5.4.2</a></span></div></div></footer></div><div id="rightside"><div id="rightside-config-hide"><button id="readmode" type="button" title="Reading Mode"><i class="fas fa-book-open"></i></button><button id="darkmode" type="button" title="Toggle Between Light and Dark Mode"><i class="fas fa-adjust"></i></button><button id="hide-aside-btn" type="button" title="Toggle Between Single-column and Double-column"><i class="fas fa-arrows-alt-h"></i></button></div><div id="rightside-config-show"><button id="rightside-config" type="button" title="Settings"><i class="fas fa-cog fa-spin"></i></button><button class="close" id="mobile-toc-button" type="button" title="Table of Contents"><i class="fas fa-list-ul"></i></button><button id="go-up" type="button" title="Back to Top"><span class="scroll-percent"></span><i class="fas fa-arrow-up"></i></button></div></div><div><script src="/js/utils.js"></script><script src="/js/main.js"></script><div class="js-pjax"></div><script async data-pjax src="//busuanzi.ibruce.info/busuanzi/2.3/busuanzi.pure.mini.js"></script></div></body></html>
